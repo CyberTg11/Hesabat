@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tag
+  -->
+  <title>EduTech | Home</title>
+  <meta name="title" content="EduTech">
+  <meta name="description" content="This is an education html site made by CyberTg11">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./css/index.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Poppins:wght@400;500&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="./image/logo.png" width="162" height="50" alt="EduTech logo">
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="wrapper">
+          <a href="#" class="logo">
+            <img src="./image/logo.png" width="162" height="50" alt="EduTech logo">
+          </a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="https://cybertg11.github.io/EduTech/index.html" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="https://cybertg11.github.io/EduTech/index.html#about" class="navbar-link" data-nav-link>About</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="https://cybertg11.github.io/EduTech/index.html#category" class="navbar-link"
+              data-nav-link>Categories</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="https://cybertg11.github.io/EduTech/course.html" class="navbar-link" data-nav-link>Courses</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="https://cybertg11.github.io/EduTech/index.html#event" class="navbar-link" data-nav-link>Events</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="https://cybertg11.github.io/EduTech/index.html#footer" class="navbar-link"
+              data-nav-link>Contact</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <div class="header-actions">
+
+        <button class="header-action-btn" aria-label="toggle search" title="Search">
+          <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <a href="https://cybertg11.github.io/EduTech/login.html" class="btn has-before">
+          <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+
+          <span class="span">Login</span>
+
+          <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+        </a>
+
+        <button class="header-action-btn" aria-label="open menu" data-nav-toggler>
+          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+
+  </header>
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+      <section class="section hero has-bg-image" id="home" aria-label="home"
+        style="background-image: url('./image/hero-bg.svg')">
+        <div class="container">
+
+          <div class="hero-content">
+
+            <h1 class="h1 section-title">
+              The Best Program to <span class="span">Enroll</span> that Fit Your Plans
+            </h1>
+
+            <p class="hero-text">
+              Stay informed about innovations in education. Start learning on our platform now and attend in events!
+            </p>
+
+            <a href="https://cybertg11.github.io/EduTech/course.html" class="btn has-before">
+              <span class="span">Buy Courses Now</span>
+
+              <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+            </a>
+
+          </div>
+
+          <figure class="hero-banner">
+
+            <div class="img-holder one" style="--width: 270; --height: 300;">
+              <img src="./image/hero-banner-3.jpeg" width="270" height="300" alt="hero banner" class="img-cover">
+            </div>
+
+            <div class="img-holder two" style="--width: 240; --height: 370;">
+              <img src="./image/hero-banner-4.jpeg" width="240" height="370" alt="hero banner" class="img-cover">
+            </div>
+
+            <img src="./image/hero-shape-3.png" width="380" height="190" alt="" class="shape hero-shape-1">
+
+            <img src="./image/hero-shape-2.png" width="622" height="551" alt="" class="shape hero-shape-2">
+
+          </figure>
+
+        </div>
+      </section>
+
+
+      <!-- 
+        - #CATEGORY
+      -->
+
+      <section class="section category" aria-label="category" id="category">
+        <div class="container">
+
+          <p class="section-subtitle">Categories</p>
+
+          <h2 class="h2 section-title">
+            Online <span class="span">Classes</span> For Remote Learning.
+          </h2>
+
+          <p class="section-text">
+            Choose the best category that fits your goals.
+          </p>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="category-card" style="--color: 170, 75%, 41%">
+
+                <div class="card-icon">
+                  <img src="./image/hacker.png" width="40" height="40" loading="lazy" alt="Online Degree Programs"
+                    class="img">
+                </div>
+
+                <h3 class="h3">
+                  <a href="javascript:void(0)" class="card-title">Cybersecurity Programs</a>
+                </h3>
+
+                <p class="card-text">
+                  Learn about system and network engineering, network security, cyber threats, penetration testing and
+                  more.
+                </p>
+
+                <span class="card-badge">3 Courses</span>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="category-card" style="--color: 60, 79%, 50%">
+
+                <div class="card-icon">
+                  <img src="./image/programming.png" width="40" height="40" loading="lazy" alt="Non-Degree Programs"
+                    class="img">
+                </div>
+
+                <h3 class="h3">
+                  <a href="javascript:void(0)" class="card-title">Programming Programs</a>
+                </h3>
+
+                <p class="card-text">
+                  Develop projects by learning different programming languages. Also learn web and mobile application
+                  development.
+                </p>
+
+                <span class="card-badge">2 Courses</span>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="category-card" style="--color: 229, 75%, 58%">
+
+                <div class="card-icon">
+                  <img src="./image/motivation.png" width="40" height="40" loading="lazy" alt="Off-Campus Programs"
+                    class="img">
+                </div>
+
+                <h3 class="h3">
+                  <a href="javascript:void(0)" class="card-title">Personal Improvement Programs</a>
+                </h3>
+
+                <p class="card-text">
+                  Learn ways to work efficiently, attention and concentration with practices, time management, correct
+                  planning and more.
+                </p>
+
+                <span class="card-badge">1 Course</span>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="category-card" style="--color: 42, 94%, 55%">
+
+                <div class="card-icon">
+                  <img src="./image/dumbbell.png" width="40" height="40" loading="lazy" alt="Hybrid Distance Programs"
+                    class="img">
+                </div>
+
+                <h3 class="h3">
+                  <a href="javascript:void(0)" class="card-title">Fitness Programs</a>
+                </h3>
+
+                <p class="card-text">
+                  Stay fit and don't neglect your health.<br> Join the best programs.
+                </p>
+
+                <span class="card-badge">2 Courses</span>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="category-card" style="--color: 50, 80%, 30%">
+
+                <div class="card-icon">
+                  <img src="./image/graphic-designer.png" width="40" height="40" loading="lazy"
+                    alt="Hybrid Distance Programs" class="img">
+                </div>
+
+                <h3 class="h3">
+                  <a href="javascript:void(0)" class="card-title">Design Programs</a>
+                </h3>
+
+                <p class="card-text">
+                  Learn web and mobile graphic design, Figma, Adobe, AutoCad, UX/UI design and more.
+                </p>
+
+                <span class="card-badge">1 Course</span>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="category-card" style="--color: 108, 70%, 35%">
+
+                <div class="card-icon">
+                  <img src="./image/financial-profit.png" width="40" height="40" loading="lazy"
+                    alt="Hybrid Distance Programs" class="img">
+                </div>
+
+                <h3 class="h3">
+                  <a href="javascript:void(0)" class="card-title">Finance Programs</a>
+                </h3>
+
+                <p class="card-text">
+                  Learn personal finance, investment and portfolio management, financial analysis, risk management and
+                  more.
+                </p>
+
+                <span class="card-badge">2 Courses</span>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="category-card" style="--color: 265, 95%, 30%">
+
+                <div class="card-icon">
+                  <img src="./image/cooperation.png" width="40" height="40" loading="lazy"
+                    alt="Hybrid Distance Programs" class="img">
+                </div>
+
+                <h3 class="h3">
+                  <a href="javascript:void(0)" class="card-title">Business Programs</a>
+                </h3>
+
+                <p class="card-text">
+                  Learn market research and analysis, marketing and brand management, creating a solid business plan and
+                  more.
+                </p>
+
+                <span class="card-badge">2 Courses</span>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="category-card" style="--color: 0,100%, 50%">
+
+                <div class="card-icon">
+                  <img src="./image/itunes.png" width="40" height="40" loading="lazy" alt="Hybrid Distance Programs"
+                    class="img">
+                </div>
+
+                <h3 class="h3">
+                  <a href="javascript:void(0)" class="card-title">Music Programs</a>
+                </h3>
+
+                <p class="card-text">
+                  Learn how to play different instruments, music production software, composition, music making with AI,
+                  and more.
+                </p>
+
+                <span class="card-badge">2 Courses</span>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about" id="about" aria-label="about">
+        <div class="container">
+
+          <figure class="about-banner">
+
+            <div class="img-holder" style="--width: 520; --height: 370;">
+              <img src="./image/about-banner.jpg" width="520" height="370" loading="lazy" alt="about banner"
+                class="img-cover">
+            </div>
+
+            <img src="./image/about-shape-1.svg" width="371" height="220" loading="lazy" alt=""
+              class="shape about-shape-2">
+
+            <img src="./image/about-shape-3.png" width="722" height="528" loading="lazy" alt=""
+              class="shape about-shape-3">
+
+          </figure>
+
+          <div class="about-content">
+
+            <p class="section-subtitle">About Us</p>
+
+            <h2 class="h2 section-title">
+              Over 10 Years in <span class="span">Distant learning</span> for Skill Development
+            </h2>
+
+            <p class="section-text">
+              Take advantage of the latest opportunities in courses by using our website.
+            </p>
+
+            <ul class="about-list">
+
+              <li class="about-item">
+                <ion-icon name="checkmark-circle-outline" aria-hidden="true"></ion-icon>
+
+                <span class="span">Expert Trainers</span>
+              </li>
+
+              <li class="about-item">
+                <ion-icon name="checkmark-circle-outline" aria-hidden="true"></ion-icon>
+
+                <span class="span">Online Remote Learning</span>
+              </li>
+
+              <li class="about-item">
+                <ion-icon name="checkmark-circle-outline" aria-hidden="true"></ion-icon>
+
+                <span class="span">Lifetime Full Access</span>
+              </li>
+
+              <li class="about-item">
+                <ion-icon name="checkmark-circle-outline" aria-hidden="true"></ion-icon>
+
+                <span class="span">Learning Materials</span>
+              </li>
+
+            </ul>
+
+            <img src="./image/about-shape-2.png" width="100" height="100" loading="lazy" alt=""
+              class="shape about-shape-4">
+
+          </div>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+  <!-- 
+        - #EVENT
+      -->
+
+  <section class="section event" id="event" aria-label="event">
+    <div class="container">
+
+      <p class="section-subtitle">Upcomming Events</p>
+
+      <h2 class="h2 section-title">Let's Join Our Community</h2>
+
+      <ul class="grid-list">
+
+        <li>
+          <div class="event-card">
+
+            <figure class="card-banner">
+              <img src="./image1/event-1.jpg" width="370" height="250" loading="lazy"
+                alt="Innovation & Technological Entrepreneurship Team" class="img-cover">
+            </figure>
+
+            <time class="badge" datetime="2025-06-17">17th Jun 2025</time>
+
+            <div class="card-content">
+
+              <address class="card-address">
+                <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+
+                <a href="https://www.google.com/maps/search/?api=1&query=Alpaca+Way+Anaheim,+CA+92805" target="_blank"
+                  class="map-link">
+                  Alpaca Way Anaheim, CA 92805
+                  <span class="tooltip">Open in Google Maps</span>
+                </a>
+              </address>
+
+              <h3 class="h3">
+                <a href="javascript:void(0)" class="card-title">Innovation & Technological Entrepreneurship Team</a>
+              </h3>
+
+              <a href="javascript:void(0)" class="btn-link" onclick="getTicket()">
+                <span class="span">Get Ticket</span>
+
+                <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+              </a>
+
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="event-card">
+
+            <figure class="card-banner">
+              <img src="./image1/event-2.jpg" width="370" height="250" loading="lazy"
+                alt="Virtual Spring Part-time Jobs Fair for Student" class="img-cover">
+            </figure>
+
+            <time class="badge" datetime="2025-07-22">22th July 2025</time>
+
+            <div class="card-content">
+
+              <address class="card-address">
+                <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+
+                <a href="https://www.google.com/maps/search/?api=1&query=Ritter+Avenue+Detroit,+MI+48226"
+                  target="_blank" class="map-link">
+                  Ritter Avenue Detroit, MI 48226
+                  <span class="tooltip">Open in Google Maps</span>
+                </a>
+
+              </address>
+
+              <h3 class="h3">
+                <a href="javascript:void(0)" class="card-title">Virtual Spring Part-time Jobs Fair for Student</a>
+              </h3>
+
+              <a href="javascript:void(0)" class="btn-link" onclick="getTicket()">
+                <span class="span">Get Ticket</span>
+
+                <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+              </a>
+
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="event-card">
+
+            <figure class="card-banner">
+              <img src="./image1/event-5.jpg" width="370" height="250" loading="lazy"
+                alt="Explorations of Regional Chief Executive Network" class="img-cover">
+            </figure>
+
+            <time class="badge" datetime="2025-10-14">14th October 2025</time>
+
+            <div class="card-content">
+
+              <address class="card-address">
+                <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+
+                <a href="https://www.google.com/maps/search/?api=1&query=Stout+Street+York,+PA+17401" target="_blank"
+                  class="map-link">
+                  Stout Street York, PA 17401
+                  <span class="tooltip">Open in Google Maps</span>
+                </a> 
+
+              </address>
+
+              <h3 class="h3">
+                <a href="javascript:void(0)" class="card-title">Explorations of Regional Chief Executive Network</a>
+              </h3>
+
+              <a href="javascript:void(0)" class="btn-link" onclick="getTicket()">
+                <span class="span">Get Ticket</span>
+
+                <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+              </a>
+
+            </div>
+
+          </div>
+        </li>
+
+        <li>
+          <div class="event-card">
+
+            <figure class="card-banner">
+              <img src="./image1/event-3.jpg" width="370" height="250" loading="lazy"
+                alt="Explorations of Regional Chief Executive Network" class="img-cover">
+            </figure>
+
+            <time class="badge" datetime="2025-08-26">26th Aug 2025</time>
+
+            <div class="card-content">
+
+              <address class="card-address">
+                <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+
+                <a href="https://www.google.com/maps/search/?api=1&query=1234+Hollywood+Boulevard,+CA+90028"
+                  target="_blank" class="map-link">
+                  1234 Hollywood Boulevard, CA 90028
+                  <span class="tooltip">Open in Google Maps</span>
+                </a>
+              </address>
+
+              <h3 class="h3">
+                <a href="javascript:void(0)" class="card-title">Seminar for the Development of Start-up Projects</a>
+              </h3>
+
+              <a href="javascript:void(0)" class="btn-link" onclick="getTicket()">
+                <span class="span">Get Ticket</span>
+
+                <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+              </a>
+
+            </div>
+
+          </div>
+        </li>
+
+      </ul>
+
+    </div>
+  </section>
+
+  <footer class="footer" style="background-image: url('./image/footer-bg.png')" id="footer">
+
+    <div class="footer-top section">
+      <div class="container grid-list">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="./image/logo-light.png" width="162" height="50" alt="EduTech logo">
+          </a>
+
+          <p class="footer-brand-text">
+            With EduTech, push the limits in education and get ready for a new learning experience. A learning
+            experience that understands you!
+          </p>
+
+          <div class="wrapper">
+            <span class="span">Add:</span>
+
+            <address class="address">70-80 Upper St Norwich NR2</address>
+          </div>
+
+          <div class="wrapper">
+            <span class="span">Call:</span>
+
+            <a href="tel:+011234567890" class="footer-link">+91 859 13 227 188</a>
+          </div>
+
+          <div class="wrapper">
+            <span class="span">Email:</span>
+
+            <a href="mailto:info@edutech.com" class="footer-link">info@edutech.com</a>
+          </div>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Online Platform</p>
+          </li>
+
+          <li>
+            <a href="#about" class="footer-link">About</a>
+          </li>
+
+          <li>
+            <a href="https://cybertg11.github.io/EduTech/course.html" class="footer-link">Courses</a>
+          </li>
+
+          <li>
+            <a href="javascript:void(0);" class="footer-link">Instructor</a>
+          </li>
+
+          <li>
+            <a href="#event" class="footer-link">Events</a>
+          </li>
+
+          <li>
+            <a href="javascript:void(0);" class="footer-link">Instructor Profile</a>
+          </li>
+
+          <li>
+            <a href="javascript:void(0);" class="footer-link">Purchase Guide</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Links</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Contact Us</a>
+          </li>
+
+          <li>
+            <a href="javascript:void(0);" class="footer-link">Gallery</a>
+          </li>
+
+          <li>
+            <a href="javascript:void(0);" class="footer-link">News & Articles</a>
+          </li>
+
+          <li>
+            <a href="javascript:void(0);" class="footer-link">FAQ's</a>
+          </li>
+
+          <li>
+            <a href="https://cybertg11.github.io/EduTech/login.html" class="footer-link">Sign In/Registration</a>
+          </li>
+
+          <li>
+            <a href="javascript:void(0);" class="footer-link">Coming Soon</a>
+          </li>
+
+        </ul>
+
+        <div class="footer-list">
+
+          <p class="footer-list-title">Contacts</p>
+
+          <p class="footer-list-text">
+            Enter your email address to register to our newsletter subscription
+          </p>
+
+          <form action="" class="newsletter-form" onsubmit="return false;">
+            <input type="email" id="emailInput" name="email_address" placeholder="Your email" required
+              class="input-field">
+            <button type="submit" id="subscribeBtn" class="btn has-before" disabled>
+              <span class="span">Subscribe</span>
+              <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+            </button>
+          </form>
+
+
+          <ul class="social-list">
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          Copyright 2024 All Rights Reserved by <a href="https://github.com/CyberTg11"
+            class="copyright-link">CyberTg11</a>
+        </p>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./js/index.js" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <div id="ticketConfirmed" class="ticket-confirmed">
+    <div class="confirmed-content">
+      <div class="checkmark">✔</div>
+      <p>Ticket Confirmed!</p>
+    </div>
+  </div>
+
+  <div id="subscriptionSuccess" class="subscription-success">
+    <div class="success-content">
+      <div class="checkmark">✔</div>
+      <p>Subscription Successful!</p>
+    </div>
+  </div>
+
+</body>
+
+</html>

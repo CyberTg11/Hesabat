@@ -905,6 +905,124 @@ body {
   display: inline-block;
 }
 
+.ticket-confirmed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background-color: #fff;
+  padding: 30px 50px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.ticket-confirmed.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.confirmed-content .checkmark {
+  font-size: 48px;
+  color: #28a745;
+  margin-bottom: 10px;
+}
+
+.confirmed-content p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.subscription-success {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background-color: #fff;
+  padding: 30px 50px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.subscription-success.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.success-content .checkmark {
+  font-size: 48px;
+  color: #28a745;
+  margin-bottom: 10px;
+}
+
+.success-content p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.map-link {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.map-link:hover {
+  color: var(--kappel);
+}
+
+/* Tooltip stili */
+.map-link .tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f6c90e; /* Güzel bir sarı */
+  color: black;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 10;
+}
+
+/* Tooltip oku */
+.map-link .tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #f6c90e transparent transparent transparent;
+}
+
+/* Hover olunca göster */
+.map-link:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
 
 
 /*-----------------------------------*\
@@ -1283,121 +1401,3 @@ body {
 
 }
 
-.ticket-confirmed {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.8);
-  background-color: #fff;
-  padding: 30px 50px;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  z-index: 9999;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.4s ease;
-  text-align: center;
-  font-family: sans-serif;
-}
-
-.ticket-confirmed.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.confirmed-content .checkmark {
-  font-size: 48px;
-  color: #28a745;
-  margin-bottom: 10px;
-}
-
-.confirmed-content p {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-}
-
-.subscription-success {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.8);
-  background-color: #fff;
-  padding: 30px 50px;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  z-index: 9999;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.4s ease;
-  text-align: center;
-  font-family: sans-serif;
-}
-
-.subscription-success.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.success-content .checkmark {
-  font-size: 48px;
-  color: #28a745;
-  margin-bottom: 10px;
-}
-
-.success-content p {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-}
-
-.map-link {
-  position: relative;
-  text-decoration: none;
-  color: inherit;
-  transition: color 0.3s ease;
-}
-
-.map-link:hover {
-  color: var(--kappel);
-}
-
-/* Tooltip stili */
-.map-link .tooltip {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  bottom: 125%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #f6c90e; /* Güzel bir sarı */
-  color: black;
-  padding: 6px 10px;
-  border-radius: 6px;
-  white-space: nowrap;
-  font-size: 13px;
-  font-weight: bold;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 10;
-}
-
-/* Tooltip oku */
-.map-link .tooltip::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 6px;
-  border-style: solid;
-  border-color: #f6c90e transparent transparent transparent;
-}
-
-/* Hover olunca göster */
-.map-link:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
-}

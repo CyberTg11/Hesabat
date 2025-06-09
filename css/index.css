@@ -975,6 +975,12 @@ body {
   color: #333;
 }
 
+.newsletter-form .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transition: opacity 0.3s ease;
+}
+
 .map-link {
   position: relative;
   text-decoration: none;

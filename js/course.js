@@ -164,12 +164,58 @@ document.querySelector('.close').addEventListener('click', () => {
   document.getElementById('paymentModal').style.display = 'none';
 });
 
-window.addEventListener('click', function(e) {
-  const modal = document.getElementById('paymentModal');
-  if (e.target === modal) {
-    modal.style.display = 'none';
-  }
+// window.addEventListener('click', function (e) {
+//   const modal = document.getElementById('paymentModal');
+//   if (e.target === modal) {
+//     modal.style.display = 'none';
+//   }
+// });
+
+document.querySelector('.cancelButton').addEventListener('click', () => {
+  document.getElementById('paymentModal').style.display = 'none';
 });
+
+
+
+  const payButton = document.querySelector(".payButton");
+  const modal = document.getElementById("paymentModal");
+  const errorBox = document.getElementById("errorBox");
+  const paymentSuccessBox = document.getElementById("paymentSuccess");
+
+  payButton.addEventListener("click", function () {
+    const cardNumber = document.getElementById("cardNumber").value.trim();
+    const expDate = document.getElementById("expDate").value.trim();
+    const ccv = document.getElementById("ccv").value.trim();
+
+    const isCardNumberValid = /^\d{16}$/.test(cardNumber.replace(/\s+/g, ""));
+    const isExpDateValid = /^\d{2}\/\d{2}$/.test(expDate);
+    const isCCVValid = /^\d{3,4}$/.test(ccv);
+
+    if (!isCardNumberValid || !isExpDateValid || !isCCVValid) {
+      showError("Please fill out all fields correctly.");
+      return;
+    }
+
+    // Başarılı ödeme kutusunu göster
+    paymentSuccessBox.classList.add("show");
+
+    // 2 saniye sonra kapat
+    setTimeout(() => {
+      paymentSuccessBox.classList.remove("show");
+      modal.style.display = "none";
+    }, 2000);
+  });
+
+  function showError(message) {
+    errorBox.innerHTML = `
+      <ion-icon name="alert-circle-outline"></ion-icon>
+      <span>${message}</span>
+    `;
+    errorBox.classList.add("show");
+    setTimeout(() => {
+      errorBox.classList.remove("show");
+    }, 3000);
+  }
 
 // Tarih inputuna otomatik '/' ekleme
 const expDateInput = document.getElementById('expDate');
@@ -230,16 +276,16 @@ ccvInput.addEventListener('input', function (e) {
 });
 
 
-  const cartList = document.querySelector(".listCart");
-  const checkOutBtn = document.querySelector(".checkOut");
+const cartList = document.querySelector(".listCart");
+const checkOutBtn = document.querySelector(".checkOut");
 
-  function updateCheckoutButton() {
-    const isEmpty = cartList.children.length === 0;
-    checkOutBtn.disabled = isEmpty;
-    checkOutBtn.classList.toggle("disabled", isEmpty);
-  }
+function updateCheckoutButton() {
+  const isEmpty = cartList.children.length === 0;
+  checkOutBtn.disabled = isEmpty;
+  checkOutBtn.classList.toggle("disabled", isEmpty);
+}
 
-  const observer = new MutationObserver(updateCheckoutButton);
-  observer.observe(cartList, { childList: true, subtree: false });
+const observer = new MutationObserver(updateCheckoutButton);
+observer.observe(cartList, { childList: true, subtree: false });
 
-  window.addEventListener("DOMContentLoaded", updateCheckoutButton);
+window.addEventListener("DOMContentLoaded", updateCheckoutButton);

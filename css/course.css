@@ -30,6 +30,7 @@
   --black_30: hsla(0, 0%, 0%, 0.3);
   /* --kappel: hsl(170, 75%, 41%); */
   --kappel: hsl(170, 75%, 41%);
+  --selective-kappel: hsl(170, 75%, 33%);
   --white: hsl(0, 0%, 100%);
 
   /**
@@ -621,14 +622,16 @@ body.showCart .cartTab {
 
 .checkOut.disabled,
 .checkOut:disabled {
-  background-color: #ccc;
-  color: #888;
+  opacity: 0.5;
   cursor: not-allowed;
+  transition: opacity 0.5s ease;
 }
 
-.checkOut {
-  transition: background-color 0.4s ease, color 0.4s ease;
+.checkOut:enabled{
+  cursor: pointer;
+  transition: opacity 0.5s ease;
 }
+
 
 
 .paymentModal {
@@ -644,6 +647,7 @@ body.showCart .cartTab {
 }
 
 .modalContent {
+  position: relative;
   background: white;
   padding: 30px;
   border-radius: 10px;
@@ -681,21 +685,107 @@ body.showCart .cartTab {
   font-size: 16px;
 }
 
-.payButton {
-  background-color: #e91e63;
-  color: white;
-  padding: 10px;
-  width: 100%;
+.payment-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.payment-buttons button {
+  padding: 12px 32px; /* Yükseklik ve genişlik artırıldı */
+  min-width: 200px;   /* Minimum genişlik eklendi */
+  font-size: 16px;
+  font-weight: 500;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.payButton {
+  background-color: var(--kappel);
+  color: white;
 }
 
 .payButton:hover {
-  background-color: #c2185b;
+  background-color: var(--selective-kappel);
 }
 
+.cancelButton {
+  background-color: #dc3545;
+  color: white;
+}
+
+.cancelButton:hover {
+  background-color: #c82333;
+}
+
+.payment-success {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background-color: #f0fff7;
+  border: 2px solid hsl(170, 75%, 41%);
+  padding: 20px 30px;
+  border-radius: 12px;
+  text-align: center;
+  color: hsl(170, 75%, 20%);
+  font-size: 1.2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  z-index: 9999;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.payment-success.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.payment-success .checkmark {
+  font-size: 2.2rem;
+  color: hsl(170, 75%, 41%);
+  margin-bottom: 8px;
+}
+
+.error-message {
+  display: none;
+  align-items: center;
+  /* gap: 10px; */
+  background-color: #ffe0e0;
+  color: #a60000;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  border-left: 4px solid #ff4d4d;
+  /* animation: fadeIn 0.5s ease-in-out;  */
+
+  position: absolute;
+  /* top: 10px; */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  min-width: 250px;
+  max-width: 80%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+}
+
+.error-message ion-icon {
+  font-size: 20px;
+}
+
+.error-message.show {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 
 /*-----------------------------------*\

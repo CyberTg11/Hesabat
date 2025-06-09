@@ -1106,6 +1106,11 @@
     <!-- Payment Modal -->
     <div class="paymentModal" id="paymentModal">
       <div class="modalContent">
+        <div id="errorBox" class="error-message">
+          <ion-icon name="alert-circle-outline"></ion-icon>
+          <span>Please fill out all fields correctly.</span>
+        </div>
+
         <h2>Your payment information</h2>
         <p>We Accept</p>
         <div class="cards">
@@ -1122,12 +1127,22 @@
           <input type="text" id="expDate" placeholder="MM/YY" maxlength="5" />
 
           <label>CCV</label>
-          <input type="text" id="ccv" placeholder="CCV" maxlength="4">
+          <input type="text" id="ccv" placeholder="CCV" maxlength="4" />
 
-          <button class="payButton">Pay</button>
+          <div class="payment-buttons">
+            <button class="payButton">Pay</button>
+            <button class="cancelButton">Cancel</button>
+          </div>
         </div>
       </div>
     </div>
+
+    <div id="paymentSuccess" class="payment-success">
+      <div class="checkmark">&#10004;</div>
+      <p>✅Payment Successful✅</p>
+    </div>
+
+
   </section>
 
   <div class="footer-bottom">

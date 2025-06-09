@@ -106,3 +106,8 @@ getTicketBtns.forEach(btn => {
       modal.classList.remove('show');
     }, 2000);
   });
+
+
+
+
+  

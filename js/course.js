@@ -75,9 +75,6 @@ closeCart.addEventListener('click', () => {
 
 
 
-
-/*Add to cart*/
-
 document.addEventListener("DOMContentLoaded", function () {
   const addToCartButtons = document.querySelectorAll(".addCart");
   const listCart = document.querySelector(".listCart");
@@ -88,6 +85,25 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }
 
+  function updateCartBadge(count) {
+    buttonBadge.textContent = count;
+  }
+
+  function updateAllButtons() {
+    addToCartButtons.forEach(button => {
+      const courseCard = button.closest(".course-card");
+      const courseTitle = courseCard.querySelector(".card-title").textContent;
+      const isInCart = cartItems.some(item => item.title === courseTitle);
+
+      button.innerHTML = isInCart
+        ? '<ion-icon name="bag-remove-outline" aria-hidden="true"></ion-icon> Remove from Cart'
+        : '<ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon> Add to Cart';
+
+      button.classList.toggle("remove-mode", isInCart);
+    });
+  }
+
+
   function loadCartItems() {
     listCart.innerHTML = "";
     cartItems.forEach(item => {
@@ -95,6 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
       listCart.appendChild(listItem);
     });
     updateCartBadge(cartItems.length);
+    updateAllButtons();
   }
 
   function addToCart(title, price) {
@@ -103,55 +120,55 @@ document.addEventListener("DOMContentLoaded", function () {
       cartItems.push({ title, price });
       updateLocalStorage();
       loadCartItems();
-      updateCartBadge(cartItems.length);
     }
   }
 
-  function removeFromCart(index) {
-    cartItems.splice(index, 1);
+  function removeFromCart(title) {
+    cartItems = cartItems.filter(item => item.title !== title);
     updateLocalStorage();
     loadCartItems();
-    updateCartBadge(cartItems.length);
   }
 
   function createCartItem(title, price) {
     const listItem = document.createElement("div");
     listItem.classList.add("cart-item");
-    listItem.innerHTML = ` 
+    listItem.innerHTML = `
       <div class="item-info">
-        <p class="title" style="text-align:">${title}</p>
+        <p class="title">${title}</p>
         <div class="item-details">
-          <p style="text-align: ">Price: $${price}</p>
+          <p>Price: $${price}</p>
         </div>
       </div>
-      <button class="removeFromCart" style="width: 200px; margin: ">Remove from cart</button>
+      <button class="removeFromCart" style="width: 200px;">Remove from cart</button>
     `;
     listItem.style.marginBottom = '50px';
 
     const removeButton = listItem.querySelector(".removeFromCart");
     removeButton.addEventListener("click", function () {
-      const itemIndex = cartItems.findIndex(item => item.title === title);
-      removeFromCart(itemIndex);
+      removeFromCart(title);
     });
 
     return listItem;
   }
 
-  function updateCartBadge(count) {
-    buttonBadge.textContent = count;
-  }
-
-  loadCartItems();
-
+  // Button click events for course cards
   addToCartButtons.forEach(button => {
     button.addEventListener("click", function () {
       const courseCard = button.closest(".course-card");
       const courseTitle = courseCard.querySelector(".card-title").textContent;
       const coursePrice = courseCard.querySelector(".price").getAttribute("value");
-      addToCart(courseTitle, coursePrice);
+
+      const isInCart = cartItems.some(item => item.title === courseTitle);
+
+      if (isInCart) {
+        removeFromCart(courseTitle);
+      } else {
+        addToCart(courseTitle, coursePrice);
+      }
     });
   });
 
+  loadCartItems();
 });
 
 
@@ -164,12 +181,6 @@ document.querySelector('.close').addEventListener('click', () => {
   document.getElementById('paymentModal').style.display = 'none';
 });
 
-// window.addEventListener('click', function (e) {
-//   const modal = document.getElementById('paymentModal');
-//   if (e.target === modal) {
-//     modal.style.display = 'none';
-//   }
-// });
 
 document.querySelector('.cancelButton').addEventListener('click', () => {
   document.getElementById('paymentModal').style.display = 'none';
@@ -177,45 +188,55 @@ document.querySelector('.cancelButton').addEventListener('click', () => {
 
 
 
-  const payButton = document.querySelector(".payButton");
-  const modal = document.getElementById("paymentModal");
-  const errorBox = document.getElementById("errorBox");
-  const paymentSuccessBox = document.getElementById("paymentSuccess");
 
-  payButton.addEventListener("click", function () {
-    const cardNumber = document.getElementById("cardNumber").value.trim();
-    const expDate = document.getElementById("expDate").value.trim();
-    const ccv = document.getElementById("ccv").value.trim();
 
-    const isCardNumberValid = /^\d{16}$/.test(cardNumber.replace(/\s+/g, ""));
-    const isExpDateValid = /^\d{2}\/\d{2}$/.test(expDate);
-    const isCCVValid = /^\d{3,4}$/.test(ccv);
+const payButton = document.querySelector(".payButton");
+const modal = document.getElementById("paymentModal");
+const errorBox = document.getElementById("errorBox");
+const paymentSuccessBox = document.getElementById("paymentSuccess");
 
-    if (!isCardNumberValid || !isExpDateValid || !isCCVValid) {
-      showError("Please fill out all fields correctly.");
-      return;
-    }
+payButton.addEventListener("click", function () {
+  const cardNumber = document.getElementById("cardNumber").value.trim();
+  const expDate = document.getElementById("expDate").value.trim();
+  const ccv = document.getElementById("ccv").value.trim();
 
-    // Başarılı ödeme kutusunu göster
-    paymentSuccessBox.classList.add("show");
+  const isCardNumberValid = /^\d{16}$/.test(cardNumber.replace(/\s+/g, ""));
+  const isExpDateValid = /^\d{2}\/\d{2}$/.test(expDate);
+  const isCCVValid = /^\d{3,4}$/.test(ccv);
 
-    // 2 saniye sonra kapat
-    setTimeout(() => {
-      paymentSuccessBox.classList.remove("show");
-      modal.style.display = "none";
-    }, 2000);
-  });
+  if (!isCardNumberValid || !isExpDateValid || !isCCVValid) {
+    showError("Please fill out all fields correctly.");
+    return;
+  }
 
-  function showError(message) {
-    errorBox.innerHTML = `
+  modal.style.display = "none";
+
+  body.classList.remove("showCart");
+
+
+  // Başarılı ödeme kutusunu göster
+  paymentSuccessBox.classList.add("show");
+
+
+  // 2 saniye sonra kapat
+  setTimeout(() => {
+    paymentSuccessBox.classList.remove("show");
+  }, 2000);
+
+
+});
+
+function showError(message) {
+  errorBox.innerHTML = `
       <ion-icon name="alert-circle-outline"></ion-icon>
       <span>${message}</span>
     `;
-    errorBox.classList.add("show");
-    setTimeout(() => {
-      errorBox.classList.remove("show");
-    }, 3000);
-  }
+  errorBox.classList.add("show");
+  setTimeout(() => {
+    errorBox.classList.remove("show");
+  }, 20000);
+}
+
 
 // Tarih inputuna otomatik '/' ekleme
 const expDateInput = document.getElementById('expDate');

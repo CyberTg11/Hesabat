@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// Modal aç/kapat
+// Modal aç/bağla
 document.querySelector('.checkOut').addEventListener('click', () => {
   document.getElementById('paymentModal').style.display = 'flex';
 });
@@ -214,11 +214,11 @@ payButton.addEventListener("click", function () {
   body.classList.remove("showCart");
 
 
-  // Başarılı ödeme kutusunu göster
+  // Uğurlu ödəmə qutusunu göstər
   paymentSuccessBox.classList.add("show");
 
 
-  // 2 saniye sonra kapat
+  // 2 saniyə sonra bağla
   setTimeout(() => {
     paymentSuccessBox.classList.remove("show");
   }, 2000);
@@ -238,11 +238,11 @@ function showError(message) {
 }
 
 
-// Tarih inputuna otomatik '/' ekleme
+// Tarix inputuna avtomatik '/' əlavə etmə
 const expDateInput = document.getElementById('expDate');
 expDateInput.addEventListener('input', function (e) {
-  let value = e.target.value.replace(/\D/g, ''); // Sayı dışı karakterleri sil
-  if (value.length > 4) value = value.slice(0, 4); // Maks 4 hane al (MMYY)
+  let value = e.target.value.replace(/\D/g, ''); // Rəqəm olmayan xarakterləri sil
+  if (value.length > 4) value = value.slice(0, 4); // Maks 4 rəqəm al (MMYY)
 
   if (value.length > 2) {
     value = value.slice(0, 2) + '/' + value.slice(2);
@@ -253,26 +253,26 @@ expDateInput.addEventListener('input', function (e) {
 
 
 expDateInput.addEventListener('input', function (e) {
-  let raw = e.target.value.replace(/\D/g, ''); // Sadece rakamları al
+  let raw = e.target.value.replace(/\D/g, ''); // Sadəcə rəqəmləri al
 
-  // İlk rakam 2-9 ise başa 0 ekle (örnek: 3 → 03)
+  // İlk rəqəm 2-9 olarsa başa 0 əlavə et (nümunə: 3 → 03)
   if (raw.length === 1 && parseInt(raw[0]) > 1) {
     raw = '0' + raw;
   }
 
-  // Eğer ilk rakam 1 ise ikinci rakam sadece 0, 1, 2 olabilir
+  // Əgər ilk rəqəm 1 isə ikinci rəqəm sadəcə 0, 1, 2 olabilər
   if (raw.length === 2 && raw[0] === '1' && !['0', '1', '2'].includes(raw[1])) {
     raw = raw[0]; // Sadece ilk rakamı bırak, ikinciyi alma
   }
 
-  // Eğer ilk rakam 0 ise ikinci rakam 1-9 arası olmalı
+  // Əgər ilk rəqəm 0 isə ikinci rəqəm 1-9 arası olmalıdır
   if (raw.length === 2 && raw[0] === '0' && raw[1] === '0') {
-    raw = '0'; // 00 gibi geçersizse sadece ilk sıfırı tut
+    raw = '0'; // 00 kimi keçərsiz isə sadəcə ilk sıfırı tut
   }
 
-  if (raw.length > 4) raw = raw.slice(0, 4); // En fazla 4 rakam
+  if (raw.length > 4) raw = raw.slice(0, 4); // Ən çox 4 rəqəm
 
-  // Otomatik '/' ekle
+  // Avtomatik '/' əlavə et
   if (raw.length > 2) {
     raw = raw.slice(0, 2) + '/' + raw.slice(2);
   }
@@ -283,9 +283,9 @@ expDateInput.addEventListener('input', function (e) {
 const cardNumberInput = document.getElementById('cardNumber');
 
 cardNumberInput.addEventListener('input', function (e) {
-  // Rakam dışı karakterleri sil ve otomatik boşluk ekle
+  // Rəqəm olmayan xarakterləri sil və avtomatik boşluq əlavə et
   let raw = e.target.value.replace(/\D/g, '').slice(0, 16);
-  let formatted = raw.replace(/(.{4})/g, '$1 ').trim(); // Her 4 rakamdan sonra boşluk
+  let formatted = raw.replace(/(.{4})/g, '$1 ').trim(); // Hər 4 rəqəmdən sonra boşluq
   e.target.value = formatted;
 });
 
@@ -293,7 +293,7 @@ cardNumberInput.addEventListener('input', function (e) {
 const ccvInput = document.getElementById('ccv');
 
 ccvInput.addEventListener('input', function (e) {
-  e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4); // Sadece rakam
+  e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4); // Sadəcə rəqəm
 });
 
 

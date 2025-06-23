@@ -83,22 +83,22 @@ getTicketBtns.forEach(btn => {
     return regex.test(email);
   }
 
-  // Buton aktif/pasif kontrolü
+  // Buton aktiv/passiv yoxlama
   emailInput.addEventListener('input', () => {
     const email = emailInput.value.trim();
     subscribeBtn.disabled = !isValidEmail(email);
   });
 
-  // Abonelik işlemi
+  // Abunə olma prosesi
   subscribeBtn.addEventListener('click', () => {
     const email = emailInput.value.trim();
 
     if (!isValidEmail(email)) return;
 
-    // Modal göster
+    // Modal göstər
     modal.classList.add('show');
 
-    // Email temizle ve buton pasif yap
+    // Email təmizlə və buton passiv et
     emailInput.value = '';
     subscribeBtn.disabled = true;
 
